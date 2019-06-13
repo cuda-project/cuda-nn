@@ -1,7 +1,7 @@
 #include "cuda_runtime.h"
 #include "device_launch_parameters.h"
 #include <stdio.h>
-#include "../../include/cnn/cube.cuh"
+#include "cube.cuh"
 
 __global__ void cube_core(int *dev_a, int *dev_b){
     int tid=blockIdx.x;

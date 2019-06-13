@@ -5,7 +5,7 @@
 #ifndef ACTIVATIONS_H
 #define ACTIVATIONS_H
 
-#include <cuda.h>
+#include <cuda_util.h>
 #include <math.h>
 
 typedef  enum{
@@ -22,6 +22,13 @@ void activate_array(float *x, const int n, const ACTIVATION a);
 
 //反向传播中如何回传值进行梯度计算
 void gardient_array(const float x, const int n, ACTIVATION a, float *delta);
+
+#ifdef GPU
+void active_array_ongpu(float *x, int n, ACTIVATION a);
+void gardient_array_ongpu(float *x, int n, ACTIVATION a, float *delta);
+#endif
+
+
 
 /**
  * 内联函数可以加快调用的速度,
