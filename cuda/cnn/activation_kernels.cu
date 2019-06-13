@@ -4,7 +4,6 @@
 
 extern "C" {
 #include "activations.h"
-#include "cuda.h"
 }
 
 //在cuda中在设备（device）中声明一个全局变量用__device__关键字修饰
