@@ -1,5 +1,5 @@
-#include<stdio.h>
-#include"../../include/cnn/print.h"
+#include <stdio.h>
+#include "print.h"
 
 void print(int *a, int n){
     printf("\tHola\n");

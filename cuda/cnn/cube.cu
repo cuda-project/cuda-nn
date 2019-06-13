@@ -2,6 +2,7 @@
 #include "device_launch_parameters.h"
 #include <stdio.h>
 #include "cube.cuh"
+#include "cuda_util.h"
 
 __global__ void cube_core(int *dev_a, int *dev_b){
     int tid=blockIdx.x;
@@ -24,4 +25,5 @@ void cube(int result[], int n){
     cudaMemcpy(dev_a,(void**)&a,n*sizeof(int),cudaMemcpyHostToDevice);
     cube_core<<<n,1>>>(dev_a,dev_b);
     cudaMemcpy((void **)&result[0],dev_b,n*sizeof(int),cudaMemcpyDeviceToHost);
+
 }

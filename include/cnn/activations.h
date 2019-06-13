@@ -5,7 +5,7 @@
 #ifndef ACTIVATIONS_H
 #define ACTIVATIONS_H
 
-#include <cuda_util.h>
+#include "cuda_util.h"
 #include <math.h>
 
 typedef  enum{

@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 
 INCLUDE_DIRECTORIES(
         include/cnn
+        /usr/local/cuda/include
 )
 
 add_subdirectory(cuda/cnn ./cuda/cnn/bin)

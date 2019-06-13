@@ -2,7 +2,7 @@
 // Created by tonye on 2019-06-13.
 //
 
-#include "../../include/cnn/activations.h"
+#include "activations.h"
 #include <stdio.h>
 #include <string.h>
 

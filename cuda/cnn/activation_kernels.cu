@@ -2,9 +2,9 @@
 #include "curand.h"
 #include "cublas_v2.h"
 
-extern "C"{
+extern "C" {
 #include "activations.h"
-#include "cuda_util.h"
+#include "cuda.h"
 }
 
 //在cuda中在设备（device）中声明一个全局变量用__device__关键字修饰
@@ -83,12 +83,12 @@ __global__ void gradient_array_kernel(float *x, int n, ACTIVATION a){
 
 
 
-//extern "C" void activate_array_ongpu(float *x, int n, ACTIVATION a){
-//    activate_array_kernel<<<cuda_gridsize(n), BLOCK>>>(x, n, a);
-//    check_error(cudaPeekAtLastError());
-//}
-//
-//extern "C" void gradient_array_ongpu(float *x, int n, ACTIVATION a){
-//    gradient_array_kernel<<<cuda_gridsize(n), BLOCK>>>(x, n, a);
-//    check_error(cudaPeekAtLastError());
-//}
+extern "C" void activate_array_ongpu(float *x, int n, ACTIVATION a){
+    activate_array_kernel<<<cuda_gridsize(n), BLOCK>>>(x, n, a);
+    check_error(cudaPeekAtLastError());
+}
+
+extern "C" void gradient_array_ongpu(float *x, int n, ACTIVATION a){
+    gradient_array_kernel<<<cuda_gridsize(n), BLOCK>>>(x, n, a);
+    check_error(cudaPeekAtLastError());
+}
